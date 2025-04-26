@@ -129,4 +129,18 @@ describe('Hamming code testing', function() {
     }
   })
 
+  it('should throw an error for invalid or empty input for encode and decode', function() {
+    // Некоректні масиви для кодування
+    assert.throws(() => hamming.encode([]), Error);
+    assert.throws(() => hamming.encode([1, 2, 3]), Error); // елементи більше ніж 0 чи 1
+    assert.throws(() => hamming.encode([undefined]), Error); // нечислове значення
+  
+    // Некоректні масиви для декодування
+    assert.throws(() => hamming.decode([]), Error);
+    assert.throws(() => hamming.decode([2, 0, 1, 0, 0, 1, 1]), Error); // елементи більше ніж 0 чи 1
+    assert.throws(() => hamming.decode([undefined, 1, 0, 0, 0, 1, 0]), Error); // нечислове значення
+  });
+  
+
 })
+
