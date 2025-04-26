@@ -86,3 +86,17 @@ describe('Huffman code testing', function() {
 
 
 })
+
+describe('isNonEmpty testing', function() {
+  it('should return true for non-empty strings', function() {
+    const inputData = 'hello';
+    const result = huffman.isNonEmpty(inputData);
+    assert.strictEqual(result, true); // Перевірка, чи результат true для непорожнього рядка
+  });
+
+  it('should return false for empty strings', function() {
+    const inputData = '';
+    const result = huffman.isNonEmpty(inputData);
+    assert.strictEqual(result, false); // Перевірка, чи результат false для порожнього рядка
+  });
+});
