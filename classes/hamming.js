@@ -95,6 +95,15 @@ class HammingCode {
 
     return errorPosition === 0;
   }
+
+  static countOnes(data) {
+    if (!Array.isArray(data)) {
+      throw Error("countOnes: input must be an array");
+    }
+    return data.filter(bit => bit === 1).length;
+  }
+  
+
 }
 
 module.exports = HammingCode;
