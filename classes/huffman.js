@@ -89,6 +89,10 @@ class HuffmanCode {
 
         return decompressedData;
     }
+    static isNonEmpty(data) {
+        return data.length > 0;
+      }
+      
 }
 
 module.exports = HuffmanCode;
