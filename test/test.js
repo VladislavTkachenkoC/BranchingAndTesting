@@ -70,10 +70,8 @@ describe('Huffman Encoding Test', function () {
 
         const encodedData = huffman.compressData(data, codeTable);
 
-        // Модифікуємо кодування для тесту: зробимо його некоректним
         const incorrectEncodedData = encodedData.slice(0, -1);  // Відрізаємо один біт, щоб він був неповним
 
-        // Функція декодування має повертати помилку або неправильний результат
         let decodedData;
         try {
             decodedData = huffman.decompressData(incorrectEncodedData, huffmanTree);
@@ -81,7 +79,6 @@ describe('Huffman Encoding Test', function () {
             decodedData = null;  // Очікуємо помилку при декодуванні
         }
 
-        // Очікуємо, що декодування поверне помилку або некоректні дані
         assert.isNull(decodedData, 'Decompression should fail if data has incomplete bits');
     });
 });
